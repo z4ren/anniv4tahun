@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>cute website for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--navy:#0d47a1;--ink:#0f3d91;--bg:#f6f9ff;--soft:#5b7fb8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:rgba(70,170,230,.45)}
+html,body{height:100%;margin:0;background:var(--bg);font-family:'Fredoka','Segoe UI',sans-serif;color:var(--ink);overflow:hidden}
+#app{position:relative;height:100%;max-width:480px;margin:0 auto;overflow:hidden}
+.s{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 22px;text-align:center;opacity:0;pointer-events:none;transition:opacity .45s}
+.s.on{opacity:1;pointer-events:auto}
+.s.top{justify-content:flex-start;padding-top:52px}
+.cat{width:116px;height:104px;margin-bottom:34px}.cat svg{width:100%;height:100%}
+h1{font-size:19px;font-weight:700;line-height:1.35;margin:0 0 16px;max-width:300px}
+h1.big{font-size:22px}
+.sub{font-family:'Quicksand',sans-serif;font-weight:500;font-size:18px;color:#2a5ab0;margin:-4px 0 28px}
+.btn{font-family:inherit;font-weight:600;font-size:14px;color:#fff;background:var(--navy);border:2px solid var(--navy);border-radius:999px;padding:11px 24px;cursor:pointer;margin:6px 5px;transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn.out{background:transparent;color:var(--navy)}
+.btn.glow,.btn:focus-visible{outline:0;box-shadow:0 0 0 6px rgba(13,71,161,.22);animation:pulse 1.8s ease-in-out infinite}
+.btn.round{width:44px;height:44px;padding:0;font-size:15px;border-radius:50%}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(13,71,161,.12)}}
+.ph{width:232px;border-radius:14px;margin-bottom:26px;background:linear-gradient(135deg,#dbe8ff,#f3e3f5);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--soft);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+#mus{position:absolute;top:22px;right:22px;width:36px;height:36px;border-radius:50%;border:2px solid var(--navy);background:var(--bg);color:var(--navy);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9;padding:0}
+#mus svg{width:16px;height:16px;fill:currentColor}
+.dots{display:flex;gap:11px;margin:0 0 28px}.dots i{width:13px;height:13px;border-radius:50%;border:2px solid var(--navy)}
+.dots i.f{background:var(--navy)}.dots i.n{background:#9ec3f0;border-color:var(--navy)}
+.dots.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.pad{display:grid;grid-template-columns:repeat(3,88px);gap:12px 16px}
+.k{height:60px;border:0;border-radius:14px;background:#fff;color:var(--navy);font-family:inherit;font-weight:700;font-size:23px;box-shadow:0 3px 10px rgba(30,70,140,.1);cursor:pointer}
+.k svg{width:26px;height:26px;fill:none;stroke:var(--navy);stroke-width:2.2}
+.clue{margin-top:30px;font-family:'Quicksand',sans-serif;font-weight:500;font-size:14px;color:var(--soft)}
+.sp{width:100%;max-width:340px;border-radius:14px;overflow:hidden;background:#6b3f50;color:#fff;text-align:left;font-family:'Quicksand',sans-serif;position:relative;margin-bottom:22px}
+.sp .top{padding:14px;background:#76485a;position:relative;height:178px}
+.sp .art{position:absolute;left:14px;top:14px;width:84px;height:84px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:48px}
+.sp .t{position:absolute;left:112px;top:30px;font-size:22px;font-weight:600}
+.sp .a{position:absolute;left:112px;top:60px;color:#d8c4cb;font-size:14px}
+.sp .sv{position:absolute;left:112px;top:84px;font-size:14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.sp .sv b{width:20px;height:20px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.sp .lg{position:absolute;right:14px;top:14px;width:20px;height:20px}
+.sp .pv{position:absolute;left:14px;top:138px;font-size:9px;background:#2d1b23;padding:2px 6px;border-radius:3px}
+.sp .ct{position:absolute;right:14px;top:124px;display:flex;align-items:center;gap:16px;font-size:16px}
+.sp .pl{width:40px;height:40px;border-radius:50%;background:#fff;color:#3b2430;border:0;font-size:15px;cursor:pointer}
+.tl{height:140px;overflow-y:auto;background:#6b3f50}
+.tr{display:flex;align-items:center;padding:8px 14px;font-size:13px;cursor:pointer}.tr.p{background:#4f2c3b}
+.tr .n{width:22px;color:#d8c4cb}.tr .m{flex:1}.tr .m small{display:block;color:#d8c4cb;font-size:11px}.tr .d{font-weight:600}
+.ov{position:absolute;inset:0;background:#7a4a5c;padding:22px 18px;display:none;flex-direction:column}.ov.on{display:flex}
+.ov h3{font-size:22px;margin:30px 0 22px;line-height:1.25}.ov .x{position:absolute;right:16px;top:12px;font-size:22px;cursor:pointer;background:0;border:0;color:#fff}
+.ov .g{background:#fff;color:#222;border:0;border-radius:999px;padding:12px 22px;font-weight:700;width:max-content;cursor:pointer}
+.ov .mb{margin-top:auto;font-size:13px;display:flex;align-items:center;gap:8px;background:#6b3f50;margin-left:-18px;margin-right:-18px;margin-bottom:-22px;padding:10px 16px}
+#fl{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.fl{position:absolute;top:-40px;animation:fall linear forwards}@keyframes fall{to{transform:translateY(115vh) rotate(200deg)}}
+.lt h2{font-size:21px;font-weight:700;margin:0 0 22px;align-self:flex-start}
+.lt .bx{align-self:stretch;max-height:50vh;overflow-y:auto;border-left:3px solid #3b78e7;padding-left:12px;font-family:'Quicksand',sans-serif;font-weight:500;font-size:15.5px;line-height:1.75;text-align:left;white-space:pre-wrap;scrollbar-width:thin}
+.lt .bx::after{content:"";display:inline-block;width:2px;height:1em;background:#9ec3f0;vertical-align:-2px;animation:bl 1s steps(2) infinite}.lt.done .bx::after{display:none}
+@keyframes bl{50%{opacity:0}}
+.lt .btn{margin-top:26px;opacity:0;pointer-events:none;transition:opacity .5s;position:relative;z-index:3}.lt.done .btn{opacity:1;pointer-events:auto}
+#toast{position:absolute;left:14px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#0d47a1;color:#fff;font:600 13px/1.4 Fredoka,sans-serif;padding:10px 14px;border-radius:12px;z-index:20;opacity:0;pointer-events:none;transition:opacity .3s;text-align:center}#toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.btn.glow,.btn:focus-visible{animation:none}}
+</style>
+</head>
+<body>
+<div id="app">
+<button id="mus" aria-label="musik"></button>
+<div id="scr"></div>
+<div id="fl"></div>
+<div id="toast"></div>
+</div>
+<script>
+/* ===== EDIT DI SINI ===== */
+const PASSWORD = "041122";            // password 6 digit (clue: your birthday)
+const MUSIC = ["musik/musik1.mp3","musik/musik2.mp3","musik/musik3.mp3","musik/musik4.mp3","musik/musik5.mp3","musik/musik6.mp3","musik/musik7.mp3","musik/musik8.mp3"];                      // isi URL file mp3 kalau mau ada lagu latar
+const PHOTOS = ["foto/foto1.jpeg","foto/foto2.jpeg","foto/foto3.jpeg","foto/vid1.mp4"];          // isi 4 URL / data-URI foto (kosong = placeholder)
+const TRACKS = [["Perahu Kertas","Maudy Ayunda","04:03"],["My Love Mine All Mine","Mitski","02:19"],["Kota Ini Tak Sama Tanpamu","Nadhif Basalamah","04:33"],["Perfect","Ed Sheeran","04:23"],["Purple","Olivia Rodrigo","04:01"],["Best Part (feat. H.E.R.)","Daniel Caesar, H.E.R.","03:30"],["About You","The 1975","05:26"],["you!","LANY","04:34"]];
+const LETTER = "On our special day, I just want to remind you how grateful I am to have you in my life. Thank you for being the amazing person you are kind, loving, and always making everything feel a little warmer just by being around.\n\nHarapan dan doaku ditahun ke 4 kita ini, Semoga segala hal baik yang kita doakan segera dikabulkan ya sayang. Semoga ditahun ke 4 ini juga kita diberikan banyak kemudahan dan\n\n Aku sangat bersyukur karenaa aku bisa mengenalmu, dan aku sangat bersyukur karena kamu mau menerima aku apa adanya. Semoga kita selalu bersama sampai tua nanti, dan semoga kita bisa terus saling menguatkan satu sama lain. Happy Anniversary cantikku.\n\nI love you to the moon and back.\n\nLovee";
+/* ========================= */
+
+const $=(s,r=document)=>r.querySelector(s), scr=$('#scr'), fl=$('#fl');
+function cat(m='happy'){const e={
+happy:'<ellipse cx="38" cy="50" rx="3.2" ry="4.2"/><ellipse cx="62" cy="50" rx="3.2" ry="4.2"/><path d="M44 58q6 9 12 0z" fill="#e8546b"/>',
+angry:'<path d="M31 45l13 6M69 45l-13 6M42 63q8-6 16 0" stroke="#2b4a6b" stroke-width="3" fill="none"/><circle cx="30" cy="58" r="5" fill="#ff8a9a" opacity=".7"/>',
+laugh:'<path d="M32 46l10 4-10 4M68 46l-10 4 10 4" stroke="#2b4a6b" stroke-width="3" fill="none"/><path d="M42 58q8 12 16 0z" fill="#e8546b"/>'}[m];
+return `<div class="cat"><svg viewBox="0 0 100 90"><path d="M18 30l4-22 18 12q10-3 20 0l18-12 4 22q8 12 6 30-4 22-38 22T12 60q-2-18 6-30z" fill="#5bc0eb" stroke="#2b4a6b" stroke-width="3" stroke-linejoin="round"/><ellipse cx="50" cy="76" rx="18" ry="8" fill="#fff"/><g fill="#2b4a6b">${e}</g></svg></div>`}
+const photo=(i,r,w)=>{const s=PHOTOS[i],v=/\.(mp4|mov|webm|m4v)(\?|$)/i.test(s||'');
+return `<div class="ph" style="aspect-ratio:${r}${w?`;width:min(${w}px,100%)`:''}">${s?(v?`<video src="${s}" controls playsinline preload="metadata"></video>`:`<img src="${s}" alt="">`):'foto kita di sini \ud83d\udcf7'}</div>`}
+
+/* screen definitions: id -> [art, heading, sub, buttons[{l,go,c}]] */
+const D={
+hi:[cat(),'hi, pretty \ud83e\udef6\ud83d\udc4b','',[{l:'tap disinii &lt;3',go:'ready',c:'glow'}]],
+ready:[cat('laugh'),'are you readyy to open thisss?','',[{l:'yess',go:'ok'},{l:'noo',go:'angry',c:'out'}]],
+angry:[cat('angry'),'OH GITU SEKARANG KAMU SAMA AKU?\ud83d\ude21','',[{l:'back',go:'ready'}]],
+ok:[cat('laugh'),'Today, we celebrate four years of us.<br>happy anniversary, sayangku \ud83e\udd0d','',[{l:'open it &lt;3',go:'gf',c:'glow'}]],
+gf:[cat('laugh'),'Happy anniversary to my most beautiful, loving, and caring girlfriend \ud83e\udd0d','I love youu so muchh!!!',[{l:'i have something for you \ud83d\udc8c',go:'last',c:'glow'}]],
+last:[cat(),'okayy last one, i made something for our anniversary, read it slowly okayyy','',[{l:'&lt;3',go:'p0',c:'round'}]],
+p0:[photo(0,'232/293'),'This was our first picture, a moment I\u2019ll always remember','',[{l:'klik ini&lt;3',go:'p1',c:'glow'}]],
+p1:[photo(1,'4/5',300),'I\u2019m so grateful for every moment we\u2019ve shared since then','',[{l:'klik ini &lt;3',go:'p2'}]],
+p2:[photo(2,'3/2'),'Thank you for being part of my days and making them feel special','',[{l:'klik ini &lt;3',go:'p3'}]],
+p3:[photo(3,'7/4'),'I hope we keep creating memories, big and small, together','',[{l:'klik ini &lt;3',go:'song'}]]};
+for(const id in D){const[a,h,s,b]=D[id],el=document.createElement('section');el.className='s';el.id=id;
+el.innerHTML=a+`<h1${id=='gf'||id=='last'?' class="big"':''}>${h}</h1>`+(s?`<p class="sub">${s}</p>`:'')+b.map(x=>`<button class="btn ${x.c||''}" data-go="${x.go}">${x.l}</button>`).join('');scr.appendChild(el)}
+
+/* password */
+const pw=document.createElement('section');pw.className='s top';pw.id='pw';
+pw.innerHTML=cat('laugh')+`<h1>Aloo sayang, ayo tebak passwordnya<br>I bet u knoww!!</h1><div class="dots">${'<i></i>'.repeat(6)}</div><div class="pad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="k" data-k="${n}">${n}</button>`).join('')}<span></span><button class="k" data-k="0">0</button><button class="k" data-k="b" aria-label="hapus"><svg viewBox="0 0 24 24"><path d="M9 5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-6-7z"/><path d="M12 9l5 5M17 9l-5 5"/></svg></button></div><div class="clue">clue : Our anniversary</div>`;
+scr.appendChild(pw);
+
+/* song intro */
+const sg=document.createElement('section');sg.className='s';sg.id='song';
+sg.innerHTML=`<svg width="140" height="140" viewBox="0 0 140 140"><g stroke="#2b2b4a" stroke-width="4" stroke-linejoin="round"><path d="M18 100V60l30-8v40" fill="#ffd84a"/><circle cx="30" cy="100" r="12" fill="#ffd84a"/><path d="M58 80V30l50-12v52" fill="#d894ee"/><circle cx="72" cy="80" r="14" fill="#d894ee"/><circle cx="96" cy="70" r="14" fill="#d894ee"/></g><path d="M48 18l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#34d399" stroke="#2b2b4a" stroke-width="3"/></svg><h1 style="margin-top:14px;font-size:16px">our song \ud83c\udfb5</h1>`;
+scr.appendChild(sg);
+
+/* spotify */
+const spo=document.createElement('section');spo.className='s';spo.id='spot';
+spo.innerHTML=`<div class="sp"><div class="top"><div class="art">\ud83d\udc30</div><svg class="lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#fff"/><path d="M5.5 9q6.5-2 13 1M6.5 13q5.5-1.5 11 1M7.5 16.5q4.5-1 8.5.8" stroke="#76485a" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg><div class="t">for u</div><div class="a">Lovee</div><div class="sv" data-ov><b>+</b>Save on Spotify</div><div class="pv">Preview</div><div class="ct"><span id="pv" style="cursor:pointer">\u23ee</span><span id="nx" style="cursor:pointer">\u23ed</span><span data-ov>\u22ef</span><button class="pl" id="pl">\u25b6</button></div></div><div class="tl" id="tl"></div><div class="ov" id="ov"><button class="x" id="ovx">\u2715</button><h3>Listen to these tracks &amp; millions more on Spotify</h3><button class="g" id="gs">Get Spotify</button><div class="mb"><span style="font-size:22px">\ud83d\udc30</span><b>for u</b><span style="color:#d8c4cb">Lovee</span><span style="margin-left:auto;font-size:18px">\u23f8</span></div></div></div><button class="btn" data-go="letter">Lanjut \u2192</button>`;
+scr.appendChild(spo);
+const PL=[].concat(MUSIC).filter(Boolean),N=PL.length;
+const ICON={on:'<svg viewBox="0 0 24 24"><path d="M9 17V5l10-2v12" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="7" cy="17" r="3"/><circle cx="17" cy="15" r="3"/></svg>',off:'<svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>'};
+let cur=0,playing=false,started=false;const tl=$('#tl'),pl=$('#pl'),bg=new Audio();
+function drawTracks(){tl.innerHTML=TRACKS.map((t,i)=>{const on=started&&i==cur;return `<div class="tr ${on?'p':''}" data-t="${i}"><span class="n">${on?(playing?'\u2016':'\u25b6'):i+1}</span><span class="m">${t[0]}<small>${t[1]}</small></span><span class="d">${t[2]}</span></div>`}).join('');pl.textContent=playing?'\u23f8':'\u25b6'}
+function sync(){drawTracks();$('#mus').innerHTML=playing?ICON.on:ICON.off}
+function fail(){playing=false;sync()}
+function pick(i){if(!N)return;cur=((i%N)+N)%N;bg.src=PL[cur];started=playing=true;bg.play().catch(fail);sync()}
+function stop(){if(!started&&!playing)return;bg.pause();bg.removeAttribute('src');bg.load();playing=started=false;cur=0;sync()}
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),5000)}
+bg.addEventListener('error',()=>{if(!bg.getAttribute('src'))return;playing=false;sync();toast('Gagal muter: '+PL[cur]+' \u2192 file nggak ketemu / nama atau foldernya beda')});
+bg.addEventListener('ended',()=>pick(cur+1));
+pl.onclick=()=>{if(!N)return;if(playing){bg.pause();playing=false;sync()}else if(!started)pick(cur);else{playing=true;bg.play().catch(fail);sync()}};
+$('#nx').onclick=()=>pick(started?cur+1:0);$('#pv').onclick=()=>pick(started?cur-1:N-1);
+tl.onclick=e=>{const r=e.target.closest('.tr');if(!r)return;const i=+r.dataset.t;i<N?pick(i):$('#ov').classList.add('on')};
+$('#mus').onclick=()=>{if($('#spot').classList.contains('on'))pl.onclick()};
+sync();
+spo.addEventListener('click',e=>{if(e.target.closest('[data-ov]'))$('#ov').classList.add('on')});
+$('#ovx').onclick=()=>$('#ov').classList.remove('on');
+$('#gs').onclick=()=>window.open('https://open.spotify.com','_blank','noopener');
+
+/* letter */
+const lt=document.createElement('section');lt.className='s lt';lt.id='letter';
+lt.innerHTML=`<h2>Happy anniversary, Sayangku \ud83e\udd0d\ud83e\udd0d</h2><div class="bx" id="bx"></div><button class="btn" data-go="pw">Kembali ke Awal</button>`;
+scr.appendChild(lt);
+
+/* music toggle */
+
+/* floating hearts + typing */
+const STAR='<svg width="26" height="26" viewBox="0 0 26 26"><ellipse cx="13" cy="15" rx="11" ry="4.5" fill="none" stroke="#f3c623" stroke-width="2" transform="rotate(-12 13 15)"/><path d="M13 3l2.8 6 6.2.7-4.6 4.2 1.3 6.2L13 17l-5.7 3.1 1.3-6.2L4 9.7 10.2 9z" fill="#ffd84a" stroke="#e9a800"/></svg>';
+let rainT,typeT;
+function rain(on){clearInterval(rainT);if(!on)return;rainT=setInterval(()=>{const i=document.createElement('i');i.className='fl';i.style.left=Math.random()*96+'%';i.style.animationDuration=5+Math.random()*5+'s';i.style.fontSize=18+Math.random()*14+'px';i.innerHTML=Math.random()<.6?'\ud83d\udc99':STAR;fl.appendChild(i);setTimeout(()=>i.remove(),10500)},380)}
+function type(){const bx=$('#bx');bx.textContent='';lt.classList.remove('done');let i=0;clearInterval(typeT);
+typeT=setInterval(()=>{bx.textContent+=LETTER[i++];bx.scrollTop=bx.scrollHeight;if(i>=LETTER.length){clearInterval(typeT);lt.classList.add('done')}},38)}
+
+/* navigation */
+function go(id){document.querySelectorAll('.s.on').forEach(s=>s.classList.remove('on'));$('#'+id).classList.add('on');
+document.querySelectorAll('video').forEach(v=>v.pause());
+if(id=='p3'){const v=$('#p3 video');if(v){v.currentTime=0;v.play().catch(()=>{})}}
+rain(id=='letter');clearInterval(typeT);if(id!='letter')fl.innerHTML='';
+if(id!='spot')stop();
+if(id=='letter')setTimeout(type,500)
+if(id=='song')setTimeout(()=>$('#song').classList.contains('on')&&go('spot'),2600);
+if(id=='pw'){code='';dots()}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)go(b.dataset.go)});
+
+/* keypad */
+let code='';const dt=()=>[...pw.querySelectorAll('.dots i')];
+function dots(){dt().forEach((d,i)=>{d.className=i<code.length?'f':i==code.length?'n':''});if(!code)dt().forEach(d=>d.className='')}
+pw.addEventListener('click',e=>{const k=e.target.closest('.k');if(!k)return;const v=k.dataset.k;
+if(v=='b')code=code.slice(0,-1);else if(code.length<6)code+=v;dots();
+if(code.length==6){setTimeout(()=>{if(code==PASSWORD){go('hi')}else{const d=pw.querySelector('.dots');d.classList.add('shake');setTimeout(()=>{d.classList.remove('shake');code='';dots()},420)}},250)}});
+go('pw');
+</script>
+</body>
+</html>
